@@ -1,49 +1,54 @@
 <template>
   <div class="root">
-    <div class="container">
-      <div class="row"></div>
-      <div class="target" ref="target">Target</div>
-      <div class="target" ref="target">Target</div>
-      <span class="abc">Target</span>
+    <div class="header">header</div>
+    <div class="body">
       <button @click="toggleDraggable">Toggle {{ draggable }}</button>
-      <moveable
-        target=".target"
-        v-bind:draggable="draggable"
-        v-bind:throttleDrag="1"
-        v-bind:edgeDraggable="false"
-        v-bind:startDragRotate="0"
-        v-bind:throttleDragRotate="0"
-        v-bind:individualGroupable="true"
-        @drag="onDrag"
-      />
+      <div class="left">left</div>
+      <div class="container">
+        <div class="target" ref="target">Target</div>
+        <div class="target" ref="target">Target</div>
+        <moveable
+          target=".target"
+          v-bind:draggable="draggable"
+          v-bind:throttleDrag="1"
+          v-bind:edgeDraggable="false"
+          v-bind:startDragRotate="0"
+          v-bind:throttleDragRotate="0"
+          v-bind:individualGroupable="true"
+          @drag="onDrag"
+        />
+        <div class="right">right</div>
+      </div>
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
+import { defineComponent, ref } from '@vue/composition-api';
+import { OnDrag } from 'moveable';
 import Moveable from "./components/Moveable/Moveable.vue";
 
-export default {
+export default defineComponent({
   components: {
     Moveable,
   },
-  data() {
-    return {
-      draggable: true,
-      dragTarget: null,
-    };
-  },
-  mounted() {
-    console.log(this);
-  },
-  methods: {
-    onDrag(e) {
+  setup() {
+    const draggable = ref(true)
+
+    const toggleDraggable = () => {
+      draggable.value = !draggable.value;
+    }
+
+    const onDrag = (e: OnDrag) => {
       e.target.style.transform = e.transform;
-    },
-    toggleDraggable() {
-      this.draggable = !this.draggable;
-    },
-  },
-};
+    }
+
+    return {
+      draggable,
+      toggleDraggable,
+      onDrag,
+    }
+  }
+});
 </script>
 <style>
 html,
@@ -56,11 +61,6 @@ body {
 
 .description {
   padding: 10px;
-}
-.row {
-  width: 100px;
-  height: 100px;
-  background-color: #333;
 }
 .root {
   position: relative;
@@ -86,18 +86,11 @@ body {
   box-sizing: border-box;
 }
 
-.target1 {
-  left: 120px;
-  top: 120px;
-}
-
-.target2 {
-  left: 300px;
-  top: 140px;
-}
-
-.target3 {
-  left: 180px;
-  top: 250px;
+.header {
+  height: 50px;
+  background: #353535;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
 }
 </style>

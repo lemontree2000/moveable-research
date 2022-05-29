@@ -3,6 +3,8 @@ lockfileVersion: 5.3
 specifiers:
   '@daybrush/utils': ^1.6.0
   '@vitejs/plugin-vue': ^2.3.3
+  '@vue/composition-api': ^1.6.2
+  '@vue/runtime-dom': latest
   framework-utils: ^1.1.0
   moveable: ^0.29.8
   react-moveable: ^0.32.7
@@ -14,6 +16,7 @@ specifiers:
 
 dependencies:
   '@daybrush/utils': registry.npmmirror.com/@daybrush/utils/1.6.0
+  '@vue/composition-api': registry.npmmirror.com/@vue/composition-api/1.6.2_vue@2.6.14
   framework-utils: registry.npmmirror.com/framework-utils/1.1.0
   moveable: registry.npmmirror.com/moveable/0.29.8
   react-moveable: registry.npmmirror.com/react-moveable/0.32.7
@@ -23,6 +26,7 @@ dependencies:
 
 devDependencies:
   '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/2.3.3_vite@2.9.9+vue@2.6.14
+  '@vue/runtime-dom': registry.npmmirror.com/@vue/runtime-dom/3.2.36
   vite: registry.npmmirror.com/vite/2.9.9
   vue-template-compiler: registry.npmmirror.com/vue-template-compiler/2.6.14
 
@@ -865,6 +869,50 @@ packages:
       prettier: registry.npmmirror.com/prettier/2.6.2
     dev: false
 
+  registry.npmmirror.com/@vue/composition-api/1.6.2_vue@2.6.14:
+    resolution: {integrity: sha512-g6pCOaAB5Z987EwCBIDanRlramrgnWfrrYS8F/0axn2AL8EvyfAebDcLTSr48hac0G0rqC9ODp5LWaiupzl6Tw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/composition-api/-/composition-api-1.6.2.tgz}
+    id: registry.npmmirror.com/@vue/composition-api/1.6.2
+    name: '@vue/composition-api'
+    version: 1.6.2
+    peerDependencies:
+      vue: '>= 2.5 < 3'
+    dependencies:
+      vue: registry.npmmirror.com/vue/2.6.14
+    dev: false
+
+  registry.npmmirror.com/@vue/reactivity/3.2.36:
+    resolution: {integrity: sha512-c2qvopo0crh9A4GXi2/2kfGYMxsJW4tVILrqRPydVGZHhq0fnzy6qmclWOhBFckEhmyxmpHpdJtIRYGeKcuhnA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/reactivity/-/reactivity-3.2.36.tgz}
+    name: '@vue/reactivity'
+    version: 3.2.36
+    dependencies:
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.36
+    dev: true
+
+  registry.npmmirror.com/@vue/runtime-core/3.2.36:
+    resolution: {integrity: sha512-PTWBD+Lub+1U3/KhbCExrfxyS14hstLX+cBboxVHaz+kXoiDLNDEYAovPtxeTutbqtClIXtft+wcGdC+FUQ9qQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/runtime-core/-/runtime-core-3.2.36.tgz}
+    name: '@vue/runtime-core'
+    version: 3.2.36
+    dependencies:
+      '@vue/reactivity': registry.npmmirror.com/@vue/reactivity/3.2.36
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.36
+    dev: true
+
+  registry.npmmirror.com/@vue/runtime-dom/3.2.36:
+    resolution: {integrity: sha512-gYPYblm7QXHVuBohqNRRT7Wez0f2Mx2D40rb4fleehrJU9CnkjG0phhcGEZFfGwCmHZRqBCRgbFWE98bPULqkg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/runtime-dom/-/runtime-dom-3.2.36.tgz}
+    name: '@vue/runtime-dom'
+    version: 3.2.36
+    dependencies:
+      '@vue/runtime-core': registry.npmmirror.com/@vue/runtime-core/3.2.36
+      '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.36
+      csstype: registry.npmmirror.com/csstype/2.6.20
+    dev: true
+
+  registry.npmmirror.com/@vue/shared/3.2.36:
+    resolution: {integrity: sha512-JtB41wXl7Au3+Nl3gD16Cfpj7k/6aCroZ6BbOiCMFCMvrOpkg/qQUXTso2XowaNqBbnkuGHurLAqkLBxNGc1hQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/shared/-/shared-3.2.36.tgz}
+    name: '@vue/shared'
+    version: 3.2.36
+    dev: true
+
   registry.npmmirror.com/ansi-styles/3.2.1:
     resolution: {integrity: sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ansi-styles/-/ansi-styles-3.2.1.tgz}
     name: ansi-styles
@@ -984,6 +1032,12 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
     dev: false
+
+  registry.npmmirror.com/csstype/2.6.20:
+    resolution: {integrity: sha512-/WwNkdXfckNgw6S5R125rrW8ez139lBHWouiBvX8dfMFtcn6V81REDqnH7+CRpRipfYlyU1CmOnOxrmGcFOjeA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/csstype/-/csstype-2.6.20.tgz}
+    name: csstype
+    version: 2.6.20
+    dev: true
 
   registry.npmmirror.com/de-indent/1.0.2:
     resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/de-indent/-/de-indent-1.0.2.tgz}

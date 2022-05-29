@@ -4,3 +4,10 @@ declare module '*.vue' {
 
   export default Vue
 }
+
+
+declare namespace JSX {
+  interface IntrinsicElements {
+      [elemName: string]: any;
+  }
+}
