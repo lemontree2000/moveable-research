@@ -2,23 +2,30 @@
   <div class="root">
     <div class="header">header</div>
     <div class="body">
-      <button @click="toggleDraggable">Toggle {{ draggable }}</button>
-      <div class="left">left</div>
+      <!-- <button @click="toggleDraggable">Toggle {{ draggable }}</button> -->
+      <section class="left">
+        <section class="sidebar"></section>
+        <section class="sidebar-drawer"></section>
+      </section>
       <div class="container">
-        <div class="target" ref="target">Target</div>
-        <div class="target" ref="target">Target</div>
-        <moveable
-          target=".target"
-          v-bind:draggable="draggable"
-          v-bind:throttleDrag="1"
-          v-bind:edgeDraggable="false"
-          v-bind:startDragRotate="0"
-          v-bind:throttleDragRotate="0"
-          v-bind:individualGroupable="true"
-          @drag="onDrag"
-        />
-        <div class="right">right</div>
+        <section class="canvas-content">
+          <section class="canvas-page">
+            <div class="target" ref="target">Target</div>
+            <div class="target" ref="target">Target</div>
+            <moveable
+              target=".target"
+              v-bind:draggable="draggable"
+              v-bind:throttleDrag="1"
+              v-bind:edgeDraggable="false"
+              v-bind:startDragRotate="0"
+              v-bind:throttleDragRotate="0"
+              v-bind:individualGroupable="true"
+              @drag="onDrag"
+            />
+          </section>
+        </section>
       </div>
+      <div class="right">right</div>
     </div>
   </div>
 </template>
@@ -64,11 +71,26 @@ body {
 }
 .root {
   position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
 }
 
 .container {
   position: relative;
-  margin-top: 50px;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center
+  /* margin-top: 50px; */
+}
+.canvas-content {
+  width: 790px;
+}
+.canvas-page {
+  border: 1px solid #353535;
+  min-height: 800px;
+  position: relative;
 }
 
 .target {
@@ -92,5 +114,24 @@ body {
   text-align: center;
   line-height: 50px;
   color: #fff;
+}
+.body {
+  display: flex;
+  height: 100%;
+}
+
+.left,
+.right {
+  display: flex;
+  width: 280px;
+  border: 1px solid #333;
+}
+
+.sidebar {
+  width: 50px;
+}
+.sidebar-drawer {
+  width: 230px;
+  border-left: 1px solid #333;
 }
 </style>
