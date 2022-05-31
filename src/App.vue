@@ -3,85 +3,49 @@
     <div class="header">header</div>
     <div class="body">
       <!-- <button @click="toggleDraggable">Toggle {{ draggable }}</button> -->
-      <section class="left">
-        <section class="sidebar"></section>
-        <section class="sidebar-drawer"></section>
-      </section>
-      <div class="container">
-        <section class="canvas-content">
-          <section class="canvas-page">
-            <div class="target" ref="target">Target</div>
-            <div class="target" ref="target">Target</div>
-            <moveable
-              target=".target"
-              v-bind:draggable="draggable"
-              v-bind:throttleDrag="1"
-              v-bind:edgeDraggable="false"
-              v-bind:startDragRotate="0"
-              v-bind:throttleDragRotate="0"
-              v-bind:individualGroupable="true"
-              @drag="onDrag"
-            />
-          </section>
-        </section>
-      </div>
-      <div class="right">right</div>
+      <!-- <editor-left /> -->
+      <editor-core />
+      <!-- <editor-right /> -->
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api';
-import { OnDrag } from 'moveable';
-import Moveable from "./components/Moveable/Moveable.vue";
+import { defineComponent } from '@vue/composition-api';
+import EditorLeft from "./components/EditorLeft/index.vue";
+import EditorRight from "./components/EditorRight/index.vue";
+import EditorCore from "./components/EditorCore/index.vue";
 
 export default defineComponent({
   components: {
-    Moveable,
+    EditorLeft,
+    EditorCore,
+    EditorRight
   },
-  setup() {
-    const draggable = ref(true)
-
-    const toggleDraggable = () => {
-      draggable.value = !draggable.value;
-    }
-
-    const onDrag = (e: OnDrag) => {
-      e.target.style.transform = e.transform;
-    }
-
-    return {
-      draggable,
-      toggleDraggable,
-      onDrag,
-    }
-  }
+  setup() {}
 });
 </script>
 <style>
 html,
 body {
-  position: relative;
+  /* position: relative; */
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-.description {
-  padding: 10px;
-}
 .root {
-  position: relative;
+  /* position: relative; */
   display: flex;
   height: 100%;
   flex-direction: column;
 }
 
 .container {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex: 1;
   align-items: center;
-  justify-content: center
+  justify-content: center;
   /* margin-top: 50px; */
 }
 .canvas-content {
