@@ -41,10 +41,19 @@ export default {
     });
     const refs = this.$refs;
     const moveableElement = refs.moveableElement;
-
-    const moveable = new VanillaMoveable(moveableElement, {
+    const moveableContainer = document.querySelector('.canvas-page') as HTMLElement
+    const moveableBounds = {
+      left: 0,
+      top: 0,
+      right: moveableContainer.clientWidth,
+      bottom: moveableContainer.clientHeight
+    }
+    console.log(moveableBounds)
+    const moveable = new VanillaMoveable(moveableContainer, {
       ...options,
       portalContainer: moveableElement,
+      bounds: moveableBounds,
+      snappable: true,
     });
 
     EVENTS.forEach((name) => {
