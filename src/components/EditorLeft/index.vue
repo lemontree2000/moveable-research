@@ -12,6 +12,7 @@ export default defineComponent({
 <template>
   <section class="left">
     <section class="sidebar"></section>
+    <div class="target" ref="target">Target</div>
     <section class="sidebar-drawer"></section>
   </section>
 </template>

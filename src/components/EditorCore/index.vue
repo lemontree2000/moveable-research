@@ -34,6 +34,7 @@ export default defineComponent({
       <section class="canvas-page">
         <div class="target" ref="target">Target</div>
         <div class="target" ref="target">Target</div>
+        <div class="target" ref="target">Target</div>
         <moveable
           target=".target"
           v-bind:draggable="draggable"
