@@ -49,3 +49,14 @@ export default defineComponent({
     </section>
   </div>
 </template>
+
+
+<style lang="sass">
+.wrapper
+  display: flex
+  div
+    width: 100px
+    height: 100px
+    background: #dedede
+    border: 1px solid red
+</style>

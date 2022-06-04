@@ -3,9 +3,9 @@
     <div class="header">header</div>
     <div class="body">
       <!-- <button @click="toggleDraggable">Toggle {{ draggable }}</button> -->
-      <!-- <editor-left /> -->
+      <editor-left />
       <editor-core />
-      <!-- <editor-right /> -->
+      <editor-right />
     </div>
   </div>
 </template>
