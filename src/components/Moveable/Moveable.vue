@@ -21,6 +21,7 @@ const watch: Record<string, any> = {};
 
 PROPERTIES.forEach((name) => {
   watch[name] = function (this: any, value: any) {
+    console.log('change',value )
     this.$_moveable[name] = value;
   };
 });

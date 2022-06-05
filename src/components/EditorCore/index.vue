@@ -18,10 +18,17 @@ export default defineComponent({
       e.target.style.transform = e.transform;
     }
 
+    const target = ref(null);
+
+    const setTarget = () => {
+      target.value = document.getElementById('abc');
+    }
     return {
       draggable,
       toggleDraggable,
       onDrag,
+      target,
+      setTarget
     }
   },
 })
@@ -31,12 +38,18 @@ export default defineComponent({
 <template>
   <div class="container">
     <section class="canvas-content">
+      <button @click="setTarget">change</button>
       <section class="canvas-page">
         <div class="target" ref="target">Target</div>
         <div class="target" ref="target">Target</div>
         <div class="target" ref="target">Target</div>
+        <div class="wrapper">
+          <div></div>
+          <div></div>
+          <div id="abc"></div>
+        </div>
         <moveable
-          target=".target"
+          :target="target"
           v-bind:draggable="draggable"
           v-bind:throttleDrag="1"
           v-bind:edgeDraggable="false"
